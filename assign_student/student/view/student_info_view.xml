@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="student_management_form_view" model="ir.ui.view">
+         <field name="name">student info form view</field>
+            <field name="model">student.info</field>
+            <field name="arch" type="xml">
+                <form string="student information">
+                     <header>
+                         <button string="success" type="object" name="student_success" widget="statusbar" class='oe_highlight'/>
+                         <button string="pending" type="object" name="student_pending" widget="statusbar" class='oe_highlight'/>
+                         <button string="cancel" type="object" name="student_cancel" widget="statusbar" class='oe_highlight'/>
+                         <field name="state" widget="statusbar"/>
+	                </header>
+                    <group>
+                        <field name="name"/>
+                        <field name="student_roll_no"/>
+                        <field name="student_gender"/>
+                        <field name="student_mobile_no"/>
+                    </group>
+                    <group>
+                        <field name="courses_id"/>
+                        <field name="student_admission_date"/>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+         <record id="student_management_list_view" model="ir.ui.view">
+            <field name="name">student info list view</field>
+            <field name="model">student.info</field>
+            <field name="arch" type="xml">
+                <tree string="student Information">
+                        <field name="student_roll_no"/>
+                        <field name="name"/>
+                        <field name="student_gender"/>
+                        <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="student_management_search_view"  model="ir.ui.view">
+            <field name="name">student management search view</field>
+            <field name="model">student.info</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="gender" domain="[('student_gender','=','boy')]" />
+                    <field name="student_roll_no"/>
+                    <group string="group by">
+                        <filter string="student_gender" name="groupby_gender" context="{'group_by':'student_gender'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="student_management_calendar_view" model="ir.ui.view" >
+            <field name="name">student info calendar view</field>
+            <field name="model">student.info</field>
+            <field name="arch" type="xml">
+                <calendar string="student info" date_start="student_admission_date" color="name" mode="month">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+
+
+
+        <record id="action_student_information" model="ir.actions.act_window">
+            <field name="name">information</field>
+            <field name="res_model">student.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+
+        <menuitem id="student_management" name="student management"/>
+        <menuitem id="student_info" name="info" parent="student_management"/>
+        <menuitem id="student" name="student info" action="action_student_information"
+                  parent="student_info"/>
+
+    </data>>
+</flectra>

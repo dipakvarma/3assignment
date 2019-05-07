@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <record id="complain_form_view" model="ir.ui.view">
+            <field name="name">complain info form view</field>
+            <field name="model">complain.info</field>
+            <field name="arch" type="xml">
+                <form string="complain information">
+                    <group>
+                        <field name="name"/>
+                        <field name="customer_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="complain_list_view" model="ir.ui.view">
+            <field name="name">complain info list view</field>
+            <field name="model">complain.info</field>
+            <field name="arch" type="xml">
+                <tree string="complain information">
+                    <field name="name"/>
+                    <field name="customer_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_complain_information" model="ir.actions.act_window">
+            <field name="name">information</field>
+            <field name="res_model">complain.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="complain" name="complain info" action="action_complain_information"
+                  parent="product_info"/>
+
+    </data>
+</flectra>

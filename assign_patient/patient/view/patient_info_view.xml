@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+         <record id="patient_form_view" model="ir.ui.view">
+            <field name="name">patient info form view</field>
+            <field name="model">patient.info</field>
+            <field name="arch" type="xml">
+                <form string="patient information">
+                    <group>
+                        <field name="name"/>
+                        <field name="patient_age"/>
+                        <field name="patient_mobile_no"/>
+                        <field name="patient_disease_type"/>
+                        <field name="doctor_id"/>
+                        <field name="disease_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="patient_info_list_view" model="ir.ui.view">
+            <field name="name">patient info list view</field>
+            <field name="model">patient.info</field>
+            <field name="arch" type="xml">
+                <tree string="course info">
+                        <field name="name"/>
+                        <field name="patient_mobile_no"/>
+                        <field name="doctor_id"/>
+                        <field name="disease_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+         <record id="patient_info_search_view"  model="ir.ui.view">
+            <field name="name">patient  search view</field>
+            <field name="model">patient.info</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_patient_information" model="ir.actions.act_window">
+            <field name="name">information</field>
+            <field name="res_model">patient.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="patient_management" name="patient management"/>
+        <menuitem id="patient_info" name="info" parent="patient_management"/>
+        <menuitem id="patient" name="patient info" action="action_patient_information"
+                  parent="patient_info"/>
+
+    </data>
+</flectra>

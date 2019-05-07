@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <record id="features_info_form_view" model="ir.ui.view">
+            <field name="name">features info form view</field>
+            <field name="model">features.info</field>
+            <field name="arch" type="xml">
+                <form string="features information">
+                    <group>
+                        <field name="name"/>
+                        <field name="product_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="features_list_view" model="ir.ui.view">
+            <field name="name">features info list view</field>
+            <field name="model">features.info</field>
+            <field name="arch" type="xml">
+                <tree string="features information">
+                    <field name="product_ids"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_features_information" model="ir.actions.act_window">
+            <field name="name">information</field>
+            <field name="res_model">features.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="features" name="feature info" action="action_features_information"
+                  parent="product_info"/>
+
+    </data>
+</flectra>

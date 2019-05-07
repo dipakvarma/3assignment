@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <record id="customer_form_view" model="ir.ui.view">
+            <field name="name">customer info form view</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <form string="customer information">
+                    <group>
+                        <field name="name"/>
+                        <field name="mobile_no"/>
+                        <field name="product_line"/>
+                        <field name="complain_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="customer_list_view" model="ir.ui.view">
+            <field name="name">customer info list view</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <tree string="customer information">
+                    <field name="name"/>
+                    <field name="mobile_no"/>
+                    <field name="complain_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_customer_information" model="ir.actions.act_window">
+            <field name="name">information</field>
+            <field name="res_model">customer.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="customer" name="customer info" action="action_customer_information"
+                  parent="product_info"/>
+
+    </data>
+</flectra>

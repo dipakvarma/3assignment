@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+         <record id="doctor_form_view" model="ir.ui.view">
+            <field name="name">doctor info form view</field>
+            <field name="model">doctor.info</field>
+            <field name="arch" type="xml">
+                <form string="doctor information">
+                    <group>
+                        <field name="name"/>
+                        <field name="doctor_specialize"/>
+                        <field name="patient_line"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="doctor_info_list_view" model="ir.ui.view">
+            <field name="name">doctor info list view</field>
+            <field name="model">doctor.info</field>
+            <field name="arch" type="xml">
+                <tree string="course info">
+                        <field name="name"/>
+                        <field name="doctor_specialize"/>
+                        <field name="patient_line"/>
+                </tree>
+            </field>
+        </record>
+
+
+         <record id="doctor_info_search_view"  model="ir.ui.view">
+            <field name="name">doctor info search view</field>
+            <field name="model">doctor.info</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_doctor_information" model="ir.actions.act_window">
+            <field name="name">information</field>
+            <field name="res_model">doctor.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <menuitem id="doctor" name="doctor info" action="action_doctor_information" parent="patient_info"/>
+
+    </data>
+</flectra>

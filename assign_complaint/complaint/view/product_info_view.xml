@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <record id="product_form_view" model="ir.ui.view">
+            <field name="name">product info form view</field>
+            <field name="model">product.info</field>
+            <field name="arch" type="xml">
+                <form string="product information">
+                    <group>
+                        <field name="name"/>
+                        <field name="product_image"/>
+                        <field name="product_price"/>
+                        <field name="features_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_list_view" model="ir.ui.view">
+            <field name="name">product info list view</field>
+            <field name="model">product.info</field>
+            <field name="arch" type="xml">
+                <tree string="product information">
+                    <field name="name"/>
+                    <field name="product_price"/>
+                    <field name="features_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+         <record id="product_search_view"  model="ir.ui.view">
+            <field name="name">product management search view</field>
+            <field name="model">product.info</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <group string="group by">
+                        <filter string="products" name="groupby_products" context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_product_information" model="ir.actions.act_window">
+            <field name="name">information</field>
+            <field name="res_model">product.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="product_management" name="product management"/>
+        <menuitem id="product_info" name="info" parent="product_management"/>
+        <menuitem id="product" name="product info" action="action_product_information"
+                  parent="product_info"/>
+
+    </data>
+</flectra>
